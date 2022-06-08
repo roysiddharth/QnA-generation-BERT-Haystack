@@ -23,7 +23,6 @@ We implemented the Google Search API to get the top 10 results from Google searc
 - `PreProcessor`: We import the `PreProcessor` library to perform necessary preprocessing tasks on the document such as splitting by words (can be sentences or paragraphs as well), cleaning whitespaces, setting split length and overlap args.
 - `InMemoryDocumentStore`: We had first tried to implement the `ElasticSearchDocumentStore` but it was an unsuccessful attempt as Docker was not running up to standards for us. As a result, considering the relatively smaller size of our data, we have used the `InMemoryDocumentStore` instead.
 - Defining the `Retriever`:
-From Haystack documentations:
 >The Retriever is a lightweight filter that can quickly go through the full document store and pass on a set of candidate documents that are relevant to the query. When used in combination with a Reader, it is a tool for sifting out irrelevant documents, saving the Reader from doing more work than it needs to and speeding up the querying process.
 
 Here we have used the `DensePassageRetriever` with arguments for `query_embedding_model`, `passage_embedding_model`, boolean `True` for `use_gpu` and `embed_title`.
